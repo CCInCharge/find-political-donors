@@ -43,36 +43,48 @@ class TestMedianHeap(unittest.TestCase):
         heap = init_MedianHeap()
         self.assertEqual(len(heap.left), 0)
         self.assertEqual(len(heap.right), 0)
+        self.assertEqual(heap.length(), 0)
+        self.assertEqual(heap.sum, 0)
     
     def test_one_value(self):
         heap = one_value(2)
         self.assertEqual(len(heap.left), 1)
         self.assertEqual(len(heap.right), 0)
+        self.assertEqual(heap.length(), 1)
         self.assertEqual(heap.median(), 2)
+        self.assertEqual(heap.sum, 2)
 
     def test_two_values(self):
         heap = two_values()
         self.assertEqual(len(heap.left), 1)
         self.assertEqual(len(heap.right), 1)
+        self.assertEqual(heap.length(), 2)
         self.assertEqual(heap.median(), 4)
+        self.assertEqual(heap.sum, 8)
 
     def test_five_values(self):
         heap = five_values()
         self.assertEqual(heap.median(), 5)
         self.assertEqual(len(heap.left), 3)
         self.assertEqual(len(heap.right), 2)
+        self.assertEqual(heap.length(), 5)
+        self.assertEqual(heap.sum, 116)
     
     def test_round_high(self):
         heap = round_high()
         self.assertEqual(heap.median(), 6)
         self.assertEqual(len(heap.left), 1)
         self.assertEqual(len(heap.right), 2)
+        self.assertEqual(heap.length(), 3)
+        self.assertEqual(heap.sum, 16.75)
 
     def test_round_low(self):
         heap = round_low()
         self.assertEqual(heap.median(), 4)
         self.assertEqual(len(heap.left), 1)
         self.assertEqual(len(heap.right), 2)
+        self.assertEqual(heap.length(), 3)
+        self.assertEqual(heap.sum, 13.25)
 
 if __name__ == "__main__":
     unittest.main()
