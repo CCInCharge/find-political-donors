@@ -1,5 +1,5 @@
 import unittest
-from find_political_donors.src.MedianHeap import MedianHeap
+from src.MedianHeap import MedianHeap
 
 def init_MedianHeap():
     return MedianHeap()

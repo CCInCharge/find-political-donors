@@ -1,5 +1,5 @@
 import heapq
-import find_political_donors.src.maxheap as maxheap
+import src.maxheap as maxheap
 
 class MedianHeap:
     def __init__(self):
