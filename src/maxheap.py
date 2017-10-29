@@ -1,10 +1,10 @@
 import heapq
+
 """
 Here is a set of wrapper functions built on Python's built-in heapq library.
 heapq only contains an implementation of min-heaps. This module has several
 methods to mimic the functionality of a max-heap.
 """
-
 def maxheappush(heap, item):
     """
     Push the value item onto the max heap, maintaining the heap invariant.

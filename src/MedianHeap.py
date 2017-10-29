@@ -1,10 +1,10 @@
 import heapq
-import maxheap
+import find_political_donors.src.maxheap as maxheap
 
-class runningMedianHeaps:
+class MedianHeap:
     def __init__(self):
         """
-        Initializes runningMedianHeaps class with two attributes: left and
+        Initializes MedianHeap class with two attributes: left and
         right heaps. left is a max heap of the smaller half of the data, and
         right is a min heap of the larger half of the data.
         """
@@ -52,9 +52,9 @@ class runningMedianHeaps:
         if not self.left and not self.right:
             return None
         elif left_len > right_len:
-            return int(round(maxheap.getmaxheaproot(self.left)), 0)
+            return int(round(maxheap.getmaxheaproot(self.left), 0))
         elif right_len > left_len:
-            return int(round(self.right[0]), 0)
+            return int(round(self.right[0], 0))
         elif left_len == right_len:
             median = (maxheap.getmaxheaproot(self.left) + self.right[0]) / 2.0
             return int(round(median, 0))
