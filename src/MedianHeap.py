@@ -1,3 +1,12 @@
+"""
+MedianHeap is a class designed to store streaming data and be able to
+efficiently calculate the median, sum, and size of the data set. It utilizes
+a pair of heaps (a min heap and a max heap) to calculate the running median
+in O(1) time (at the cost of maintaining the two heaps, which takes O(log n)
+time). This is much more efficient than calculating a median from a large
+data set by sorting it.
+"""
+
 import heapq
 import src.maxheap as maxheap
 

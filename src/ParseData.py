@@ -1,3 +1,8 @@
+"""
+Provides functionality for parsing data that is read in from FEC, as well as
+handling some erroneous data.
+"""
+
 from datetime import datetime
 
 def valid_zip(zip):
