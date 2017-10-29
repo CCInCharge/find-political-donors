@@ -67,7 +67,7 @@ def parse_row(row):
         "CMTE_ID": data[0],
         "ZIP_CODE": valid_zip(data[10]),
         "TRANSACTION_DT": data[13],
-        "date_key": valid_date(data[13])
+        "date_key": valid_date(data[13]),
         "TRANSACTION_AMT": int(data[14]),
     }
 
