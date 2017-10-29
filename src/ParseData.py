@@ -73,6 +73,9 @@ def parse_row(row):
                 TRANSACTION_AMT: Int, amount of transaction
     """
     data = row.split("|")
+    # data[0]: CMTE_ID
+    # data[14]: TRANSACTION_AMT
+    # data[15]: OTHER_ID
     if not data[0] or not data[14] or not not data[15]:
         return None
     if int(data[14]) < 0:
