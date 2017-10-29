@@ -12,6 +12,7 @@ class MedianHeap:
         # right is a min heap of the upper half of the data
         self.left = []
         self.right = []
+        self.sum = 0
 
     def __rebalance(self):
         """
@@ -39,6 +40,7 @@ class MedianHeap:
             maxheap.maxheappush(self.left, val)
         else:
             heapq.heappush(self.right, val)
+        self.sum += val
         self.__rebalance()
     
     def median(self):
@@ -58,3 +60,11 @@ class MedianHeap:
         elif left_len == right_len:
             median = (maxheap.getmaxheaproot(self.left) + self.right[0]) / 2.0
             return int(round(median, 0))
+    
+    def length(self):
+        """
+        Returns the number of data points available.
+
+        :returns: int, number of data points. Returns 0 if no data.
+        """
+        return len(self.left) + len(self.right)
