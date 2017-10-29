@@ -57,7 +57,8 @@ def parse_row(row):
     fields. If CMTE_ID or TRANSACTION_AMT in the original data are empty,
     returns None (as this data is not to be used for any downstream
     calculation). If OTHER_ID is not empty, returns None, for the same reason.
-    Otherwise, returns a dict with the parsed data.
+    Otherwise, returns a dict with the parsed data. Some transations have
+    a negative amount - return None if this is the case.
 
     :param row: One row of data from input data stream
     :returns:   None if CMTE_ID or TRANSACTION_AMT are empty. None if OTHER_ID
@@ -73,6 +74,8 @@ def parse_row(row):
     """
     data = row.split("|")
     if not data[0] or not data[14] or not not data[15]:
+        return None
+    if int(data[14]) < 0:
         return None
     return {
         "CMTE_ID": data[0],
