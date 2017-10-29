@@ -4,6 +4,7 @@ the ParseData module.
 """
 
 from src.MedianHeap import MedianHeap
+from datetime import datetime
 
 def process_for_zip(data, data_by_zip):
     """
@@ -39,4 +40,26 @@ def process_for_zip(data, data_by_zip):
     cur_data.add(data["TRANSACTION_AMT"])
     output_data = (key + "|" + str(cur_data.median()) + "|" + 
                    str(cur_data.length()) + "|" + str(cur_data.sum))
+    return output_data
+
+def process_for_date(data, data_by_date):
+    if not data or not data["date_key"]:
+        return None
+    key = data["CMTE_ID"] + "|" + data["date_key"]
+    if key not in data_by_date:
+        data_by_date[key] = MedianHeap()
+    cur_data = data_by_date[key]
+    cur_data.add(data["TRANSACTION_AMT"])
+
+def output_for_date(data_by_date):
+    if len(data_by_date) == 0:
+        return
+    key, cur_data = data_by_date.popitem(last=False)
+    key = key.split("|")
+    CMTE_ID = key[0]
+    date_key = key[1]
+    date_key = datetime.strptime(date_key, '%Y%m%d')
+    output_date = date_key.strftime('%m%d%Y')
+    output_data = (CMTE_ID + "|" + output_date + "|" + str(cur_data.median()) +
+                   "|" + str(cur_data.length()) + "|" + str(cur_data.sum))
     return output_data
