@@ -14,7 +14,11 @@ def valid_zip(zip):
                 valid zip code
     :returns  : 5-digit zip code if valid, None if not.
     """
+    if not zip:
+        return None
     if len(zip) < 5:
+        return None
+    if " " in zip:
         return None
     if len(zip) > 5:
         zip = zip[0:5]
@@ -35,6 +39,8 @@ def valid_date(date):
                  valid date
     :returns:    Date in Year Month Day format if valid, None if invalid.
     """
+    if not date:
+        return None
     if len(date) != 8:
         return None
     try:

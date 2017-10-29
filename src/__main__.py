@@ -6,7 +6,6 @@ import sys
 
 def main():
     if len(sys.argv) == 1:
-        print("No input file selected, using default: input/itcont_test.txt")
         input_file = "input/itcont.txt"
         output_zip_file = "output/medianvals_by_zip.txt"
         output_date_file = "output/medianvals_by_date.txt"
