@@ -64,3 +64,6 @@ In addition to the test within the insight_testsuite, multiple unit tests have b
 ```
 pytest pytest_testsuite/*
 ```
+
+## Expected Runtime
+This code has been tested on all contributions provided for 2017, a text file of roughly ~800 MB. The code takes around 1 minute to complete.
