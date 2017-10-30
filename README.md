@@ -28,7 +28,7 @@ Through the use of these data structures, the code scales quite well for large i
 2. cd into the top level of the directory with this repository
 3. Create a new virtualenv for python3:
 ```
-virtualenv -k python3 venv
+virtualenv -p python3 venv
 ```
 4. Activate the virtualenv:
 ```
